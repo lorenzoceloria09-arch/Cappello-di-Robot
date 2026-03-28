@@ -9,6 +9,23 @@
     --border-color: #3e3e60; /* Colore bordo */
     --glow-effect: 0 0 10px rgba(0, 188, 212, 0.7); /* Effetto bagliore */
 }
+.back-link {
+    align-self: flex-start;
+    color: var(--neon-blue);
+    text-decoration: none;
+    border: 1px solid var(--neon-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    background-color: var(--neon-blue);
+    color: var(--bg-color);
+}
 
 * {
     margin: 0;
