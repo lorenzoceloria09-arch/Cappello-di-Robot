@@ -1,0 +1,342 @@
+p{
+  text-shadow: 0 0 20px rgba(158, 223, 251, 0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+hr{
+  display:block; 
+  height: 1px; 
+  border:0; 
+  border-top: 1px solid #ccc;
+  margin: 1em 0; 
+  padding: 0; 
+  }
+.butt{
+  border-radius: 25%;
+  background-color: rgba(79, 197, 248, 0.5);
+  text-shadow: 0 0 20px rgba(143, 194, 216, 0.5);
+  border: none;
+  color: white;
+  padding: 15px 42px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+/* Tema Futuristico */
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --neon-blue: #38bdf8;
+    --correct-bg: #064e3b;
+    --correct-border: #10b981;
+    --wrong-bg: #7f1d1d;
+    --wrong-border: #ef4444;
+    --text-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* tornare alla pagina principale */
+.back-link {
+    align-self: flex-start;
+    color: var(--neon-blue);
+    text-decoration: none;
+    border: 1px solid var(--neon-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    background-color: var(--neon-blue);
+    color: var(--bg-color);
+}
+
+h1 {
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* domande */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+}
+
+/* Stile delle caselle */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.card-header {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+}
+
+/* contenuto nascosto che si apre */
+.card-content {
+    max-height: 0;
+    padding: 0 20px;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.card.open .card-content {
+    max-height: 250px;
+    padding: 0 20px 20px;
+    opacity: 1;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.2s;
+    color: white;
+}
+
+.btn-vero { background-color: #0284c7; }
+.btn-falso { background-color: #475569; }
+
+.btn:hover { filter: brightness(1.2); }
+
+/* verde / rosso */
+.card.correct {
+    background-color: var(--correct-bg);
+    border-color: var(--correct-border);
+    pointer-events: none;
+}
+
+.card.wrong {
+    background-color: var(--wrong-bg);
+    border-color: var(--wrong-border);
+    pointer-events: none;
+}
+
+/* Stile del bottone principale */
+.btn-principale {
+  padding: 30px 200px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-principale:hover {
+  background-color: #0056b3; /* più scuro al passaggio del mouse */
+}
+
+.btn-principale:active {
+  transform: scale(0.96); /* si schiaccia quando cliccchi */
+}
+
+/* sfondo scuro */
+.modale {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(4px); 
+  align-items: center; 
+  justify-content: center; 
+}
+
+/* window bianca domande */
+.modale-contenuto {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  font-family: sans-serif;
+  animation: comparsa 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* animazione con rimbalzo */
+}
+
+@keyframes comparsa {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/*X in alto a destra */
+.chiudi {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.chiudi:hover {
+  color: #333;
+}
+
+/* bottone dentro la finestrella */
+.btn-secondario {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.btn-secondario:hover {
+  background-color: #218838;
+}
+
+.grid-domande {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/*  pulsante  domanda  */
+.butt-domanda {
+    padding: 18px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #e2e8f0;
+    background-color: rgba(79, 197, 248, 0.18);
+    border: 1px solid rgba(79, 197, 248, 0.45);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+    .butt-domanda:hover:not(:disabled) {
+        background-color: rgba(79, 197, 248, 0.35);
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* verde, bloccato */
+    .butt-domanda.correct {
+        background-color: #064e3b;
+        border-color: #10b981;
+        color: #6ee7b7;
+        cursor: default;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+
+    /* rosso, ancora cliccabile */
+    .butt-domanda.wrong {
+        background-color: #7f1d1d;
+        border-color: #ef4444;
+        color: #fca5a5;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.35);
+    }
+
+/*  testo dentro la domanda  */
+.modale-numero {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.modale-testo {
+    font-size: 1.05rem;
+    color: #1e293b;
+    line-height: 1.5;
+    margin-bottom: 4px;
+    text-transform: none;
+    text-shadow: none;
+    letter-spacing: normal;
+}
+
+.risultato-testo {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 1.4em;
+    letter-spacing: normal;
+    text-transform: none;
+    text-shadow: none;
+}
+
+.testo-corretto {
+    color: #10b981;
+}
+
+.testo-sbagliato {
+    color: #ef4444;
+}
+
+@media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .buttons-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }

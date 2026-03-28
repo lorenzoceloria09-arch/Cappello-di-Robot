@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz di Robotica</title>
+    <link rel="stylesheet" href="giocaCdB.css">
+</head>
+<body>
+
+    <a href="Cappello di robot.html" class="back-link">← Torna alla Sezione Scelte</a>
+    <h1>Sezione Domande</h1>
+    <p>Rispondi alle domande per far proseguire il nostro Robottino!</p>
+    <hr>
+
+    <div class="grid-domande" id="gridDomande"></div>
+
+    <div class="modale" id="modale">
+        <div class="modale-contenuto">
+            <span class="chiudi" id="chiudiModale">&times;</span>
+            <p class="modale-numero" id="modaleNumero">Q-01</p>
+            <p class="modale-testo" id="modaleDomanda"></p>
+            <div class="buttons">
+                <button class="btn btn-vero" id="btnVero">✔ VERO</button>
+                <button class="btn btn-falso" id="btnFalso">✘ FALSO</button>
+            </div>
+            <p class="risultato-testo" id="modaleRisultato"></p>
+        </div>
+    </div>
+
+    <script src="GCdB.js"></script>
+</body>
+</html>
